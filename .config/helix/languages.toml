@@ -1,0 +1,116 @@
+# Language Servers
+
+## Typescript
+[language-server.emmet-ls]
+args = ["--stdio"]
+command = "emmet-ls"
+
+[language-server.eslint]
+command = "vscode-eslint-language-server"
+args = ["--stdio"]
+
+[language-server.eslint.config]
+codeActionsOnSave = { mode = "all", "source.fixAll.eslint" = true }
+format = { enable = true }
+nodePath = ""
+quiet = false
+rulesCustomizations = []
+run = "onType"
+validate = "on"
+experimental = {}
+problems = { shortenToSingleLine = false }
+
+[language-server.eslint.config.codeAction]
+disableRuleComment = { enable = true, location = "separateLine" }
+showDocumentation = { enable = false }
+
+[language-server.vscode-json-language-server.config]
+json = { validate = { enable = true }, format = { enable = true } }
+provideFormatter = true
+
+[language-server.vscode-css-language-server.config]
+css = { validate = { enable = true } }
+scss = { validate = { enable = true } }
+less = { validate = { enable = true } }
+provideFormatter = true
+
+## Markdown
+[language-server.mdpls]
+command = "/Users/guillermoaguirre/.cargo/bin/mdpls"
+config = { markdown.preview.auto = true }
+
+## Ruby
+[language-server.ruby-lsp]
+command = "ruby-lsp"
+config = { diagnostics = true, formatting = true}
+
+[language-server.solargraph]
+command = "solargraph"
+args = ["stdio"]
+config = { diagnostics = false, formatting = false }
+
+# Languages
+
+[[language]]
+name = "typescript"
+language-servers = [ "typescript-language-server", "eslint", "emmet-ls" ]
+formatter = { command = "prettier", args = [ "--parser", "typescript" ] }
+auto-format = true
+
+[[language]]
+name = "tsx"
+language-servers = [ "eslint", "emmet-ls" ]
+formatter = { command = "prettier", args = [ "--parser", "typescript" ] }
+auto-format = true
+
+[[language]]
+name = "javascript"
+language-servers = [ "typescript-language-server", "eslint", "emmet-ls" ]
+formatter = { command = "prettier", args = [ "--parser", "typescript" ] }
+auto-format = true
+
+[[language]]
+name = "jsx"
+language-servers = [ "typescript-language-server", "eslint", "emmet-ls" ]
+formatter = { command = "prettier", args = [ "--parser", "typescript" ] }
+auto-format = true
+
+[[language]]
+name = "json"
+formatter = { command = "prettier", args = [ "--parser", "json" ] }
+auto-format = true
+
+[[language]]
+name = "html"
+language-servers = [ "vscode-html-language-server", "emmet-ls" ]
+formatter = { command = 'prettier', args = ["--parser", "html"] }
+auto-format = true
+
+[[language]]
+name = "css"
+language-servers = [ "vscode-css-language-server", "emmet-ls" ]
+formatter = { command = 'prettier', args = ["--parser", "css"] }
+auto-format = true
+
+[[language]]
+name = "markdown"
+language-servers = ["marksman", "mdpls"]
+
+[[language]]
+name = "rust"
+
+[[language]]
+name = "ruby"
+# formatter = { command = "rubocop", args = ["--stdin", "foo.rb", "-A", "--stderr", "--fail-level", "fatal", "--server"] }
+language-servers = ["ruby-lsp"]
+auto-format = true
+
+[[language]]
+name = "erb"
+formatter = { command = "sed", args = ["s/[ \t]*$//"] }
+# formatter = { command = "erb_lint", args = ["-a"] }
+auto-format = true
+
+[language.auto-pairs]
+'<' = '>'
+'%' = '%'

@@ -1,0 +1,44 @@
+# theme = "monokai_pro_mine"
+theme = "rose_pine_moon_mine"
+
+[editor]
+line-number = "relative"
+mouse = true
+end-of-line-diagnostics = "hint"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[editor.lsp]
+display-inlay-hints = true
+display-messages = true
+
+[editor.inline-diagnostics]
+cursor-line = "error"
+
+[editor.soft-wrap]
+enable = true
+
+[keys.normal]
+esc = [ "normal_mode", ":format" , ":write!" ] # For quick saving
+C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+Z = ":toggle gutters.line-numbers.min-width 170 3"
+g = { D = ["vsplit", "jump_view_down", "goto_definition", "collapse_selection"] }
+
+[keys.normal.space]
+H = ":sh zellij run -c -f -x 10% -y 10% --width 80% --height 80% -- bash ~/.config/helix/serpl-replace.sh"
+
+[keys.normal.space.q]
+q = ":sh zellij run -c -f -x 10% -y 10% --width 80% --height 80% -- bash ~/.config/helix/yazi-picker.sh open" # Open the file(s) in the current window
+v = ":sh zellij run -c -f -x 10% -y 10% --width 80% --height 80% -- bash ~/.config/helix/yazi-picker.sh vsplit" # Open the file(s) in a horizontal pane
+s = ":sh zellij run -c -f -x 10% -y 10% --width 80% --height 80% -- bash ~/.config/helix/yazi-picker.sh hsplit" # Open the file(s) in a vertical pane
+
+[keys.select]
+C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before", "collapse_selection"]
+C-j = ["extend_to_line_bounds", "delete_selection", "paste_after", "collapse_selection"]
