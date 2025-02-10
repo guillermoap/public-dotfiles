@@ -29,7 +29,7 @@ esc = [ "normal_mode", ":format" , ":write!" ] # For quick saving
 C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
 C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 Z = ":toggle gutters.line-numbers.min-width 170 3"
-g = { D = ["vsplit", "jump_view_down", "goto_definition", "collapse_selection"] }
+g = { v = ["vsplit", "jump_view_down", "goto_definition", "collapse_selection"], V = ["hsplit", "jump_view_down", "goto_definition", "collapse_selection"] }
 
 [keys.normal.space]
 H = ":sh zellij run -c -f -x 10% -y 10% --width 80% --height 80% -- bash ~/.config/helix/serpl-replace.sh"
